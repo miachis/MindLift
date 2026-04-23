@@ -3,10 +3,9 @@ import DropDownNavbar from "./DropDownNavbar";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
-
   return (
-    <header className="sticky top-0 z-50 flex justify-center items-center w-full">
-      <div className="flex border justify-between items-center shadow-sm border-white rounded-full backdrop-blur-md bg-white/30 py-2 pl-4 pr-5 w-[80%] mt-3 lg:py-2.5 lg:pl-8 lg:pr-4 2xl:py-5">
+    <header className="sticky top-0 z-100 px-10 flex justify-center items-center">
+      <div className="w-full flex border justify-between items-center shadow-sm border-white rounded-full backdrop-blur-md bg-white/30 py-2 pl-4 pr-5 mt-3 lg:py-2.5 lg:pl-8 lg:pr-4 2xl:py-5">
         {open && <DropDownNavbar />}
         <div className="flex justify-between w-full items-center lg:w-max lg:gap-15">
           <a className="flex items-center" href="#">
@@ -15,20 +14,20 @@ function Navbar() {
           </a>
 
           <nav className="flex gap-10 text-md">
-            <a href="#" className="hidden lg:block">
+            <a href="#about" className="hidden lg:block font-medium text-md">
               About
             </a>
-            <a href="#" className="hidden lg:block">
+            <a href="#" className="hidden lg:block font-medium text-md">
               FAQ
             </a>
-            <a href="#" className="hidden lg:block">
+            <a href="#" className="hidden lg:block font-medium text-md">
               Contact
             </a>
             <button
               class="cursor-pointer lg:hidden flex items-center justify-center w-10 h-10 rounded-full"
               onClick={() => setOpen(!open)}
             >
-              <div class="w-5 h-5 flex flex-col justify-center items-center space-y-0.5">
+              <div class="w-5 h-5 flex flex-col justify-center items-center space-y-1">
                 <span class="block w-5 h-0.5 bg-black"></span>
                 <span class="block w-5 h-0.5 bg-black"></span>
                 <span class="block w-5 h-0.5 bg-black"></span>
