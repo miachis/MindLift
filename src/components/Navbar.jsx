@@ -17,20 +17,20 @@ function Navbar() {
             <a href="#about" className="hidden lg:block font-medium text-md">
               About
             </a>
-            <a href="#" className="hidden lg:block font-medium text-md">
+            <a href="#faq" className="hidden lg:block font-medium text-md">
               FAQ
             </a>
             <a href="#" className="hidden lg:block font-medium text-md">
               Contact
             </a>
             <button
-              class="cursor-pointer lg:hidden flex items-center justify-center w-10 h-10 rounded-full"
+              className="cursor-pointer lg:hidden flex items-center justify-center w-10 h-10 rounded-full"
               onClick={() => setOpen(!open)}
             >
-              <div class="w-5 h-5 flex flex-col justify-center items-center space-y-1">
-                <span class="block w-5 h-0.5 bg-black"></span>
-                <span class="block w-5 h-0.5 bg-black"></span>
-                <span class="block w-5 h-0.5 bg-black"></span>
+              <div className="w-5 h-5 flex flex-col justify-center items-center space-y-1">
+                <span className="block w-5 h-0.5 bg-black"></span>
+                <span className="block w-5 h-0.5 bg-black"></span>
+                <span className="block w-5 h-0.5 bg-black"></span>
               </div>
             </button>
           </nav>

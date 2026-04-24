@@ -4,6 +4,7 @@ import "../index.css";
 import About from "../components/About";
 import DropDownNavbar from "../components/DropDownNavbar";
 import FAQ from "../components/FAQ";
+import Contact from "../components/Contact";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <About />
       <FAQ />
+      <Contact />
     </>
   );
 }

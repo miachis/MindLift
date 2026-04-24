@@ -2,7 +2,7 @@ function About() {
   return (
     <section className="flex flex-col items-center" id="about">
       <div>
-        <div className="flex pt-20 px-15 lg:px-30 gap-10 items-center w-full flex-col lg:flex-row">
+        <div className="flex pt-20 px-7 lg:px-30 gap-10 items-center w-full flex-col lg:flex-row">
           {/* for large screens */}
           <div className="w-[50%] hidden lg:block">
             <img
@@ -114,15 +114,15 @@ function About() {
         </div>
       </div>
 
-      <div className="flex p-20 flex-col lg:flex-row gap-10">
+      <div className="flex pt-20 px-7 lg:p-20 flex-col lg:flex-row gap-10">
         <div className="lg:w-[50%]">
           <div className="mb-8">
-            <h1 className="text-3xl font-serif font-bold max-lg:text-center">
+            <h1 className="text-3xl font-serif font-bold">
               The Story Behind MindLift
             </h1>
           </div>
           <div className="max-w-120">
-            <p className="text-md text-gray-700">
+            <div className="text-md text-gray-700">
               MindLift does exactly what it says, it lifts one's mind. <br />
               <p className="pt-3">
                 MindLift is a thoughtfully designed platform dedicated to
@@ -146,7 +146,7 @@ function About() {
               <p>
                 With MindLift, growth becomes a daily habit, not just a goal.
               </p>
-            </p>
+            </div>
           </div>
         </div>
 

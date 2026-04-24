@@ -1,7 +1,159 @@
+import { useState } from "react";
+
 function FAQ() {
+  const [firstOpen, setFirstOpen] = useState(false);
+  const [secondOpen, setSecondOpen] = useState(false);
+  const [thirdOpen, setThirdOpen] = useState(false);
+  const [fourthOpen, setFourthOpen] = useState(false);
+  const [fifthOpen, setFifthOpen] = useState(false);
+  const [lastOpen, setLastOpen] = useState(false);
+
   return (
-    <section>
-      <h1>FAQ</h1>
+    <section
+      className="flex justify-center space-y-20 lg:gap-30 px-7 lg:px-20 items-start pt-30 flex-col lg:flex-row"
+      id="faq"
+    >
+      <div>
+        <h1 className="text-3xl font-bold">Frequently Asked Questions</h1>
+        <div>
+          <p className="text-lg text-gray-700 pt-4">
+            Quick answers to the questions we hear most from users getting
+            started with MindLift.
+          </p>
+        </div>
+      </div>
+      <div className="w-full">
+        <ul className="flex flex-col gap-3">
+          <li className="border border-gray-300 px-6 py-5 lg:px-7 lg:py-5 rounded-xl w-full lg:w-2xl">
+            <div>
+              <button
+                className="flex w-full justify-between cursor-pointer"
+                onClick={() => setFirstOpen(!firstOpen)}
+              >
+                <p className="text-md font-bold">What is MindLift?</p>
+                <p>+</p>
+              </button>
+            </div>
+            {firstOpen && (
+              <div className="w-full">
+                <p className="text-md text-gray-700 pt-3 pb-2 w-full">
+                  MindLift is your mind's personal buddy. It turns your daily
+                  difficulties into an opportunity for you to grow mentally and
+                  physically as a human made. It is a personalized assistant
+                  that helps with decision making that tends to throw one's mind
+                  off balance.
+                </p>
+              </div>
+            )}
+          </li>
+          <li className="border border-gray-300 px-7 py-5 rounded-xl w-full lg:w-2xl">
+            <div>
+              <button
+                className="flex w-full justify-between cursor-pointer"
+                onClick={() => setSecondOpen(!secondOpen)}
+              >
+                <p className="text-md font-bold">Who actually uses it?</p>
+                <p>+</p>
+              </button>
+            </div>
+            {secondOpen && (
+              <div>
+                <p className="text-md text-gray-700 pt-3 pb-2">
+                  Absolutely anyone can signup or create an account and use
+                  MindLift today. There are no restrictions to different kinds
+                  of individuals.
+                </p>
+              </div>
+            )}
+          </li>
+          <li className="border border-gray-300 px-7 py-5 rounded-xl w-full lg:w-2xl">
+            <div>
+              <button
+                className="flex w-full justify-between cursor-pointer"
+                onClick={() => setThirdOpen(!thirdOpen)}
+              >
+                <p className="text-md font-bold">
+                  How does MindLift actually work?
+                </p>
+                <p>+</p>
+              </button>
+            </div>
+            {thirdOpen && (
+              <div>
+                <p className="text-md text-gray-700 pt-3 pb-2">
+                  MindLift requires you, a user, to give it some challenges or
+                  bottlenecks you faced during the day and how you reacted or
+                  responded to those challenges, it then generates a
+                  personalized feedback or recommendation in which you can apply
+                  to similar challenges that you may face in the future.
+                </p>
+              </div>
+            )}
+          </li>
+          <li className="border border-gray-300 px-7 py-5 rounded-xl w-full lg:w-2xl">
+            <div>
+              <button
+                className="flex w-full justify-between cursor-pointer"
+                onClick={() => setFourthOpen(!fourthOpen)}
+              >
+                <p className="text-md font-bold">
+                  How quickly will I see results?
+                </p>
+                <p>+</p>
+              </button>
+            </div>
+            {fourthOpen && (
+              <div>
+                <p className="text-md text-gray-700 pt-3 pb-2">
+                  You can decide to view results daily as you feed your
+                  challenges into MindLift or you can save the results for the
+                  end of the week.
+                </p>
+              </div>
+            )}
+          </li>
+          <li className="border border-gray-300 px-7 py-5 rounded-xl w-full lg:w-2xl">
+            <div>
+              <button
+                className="flex w-full justify-between cursor-pointer"
+                onClick={() => setFifthOpen(!fifthOpen)}
+              >
+                <p className="text-md font-bold">
+                  Do I need to pay for a subscription?
+                </p>
+                <p>+</p>
+              </button>
+            </div>
+            {fifthOpen && (
+              <div>
+                <p className="text-md text-gray-700 pt-3 pb-2">
+                  Nope. MindLift is 100% free.
+                </p>
+              </div>
+            )}
+          </li>
+          <li className="border border-gray-300 px-7 py-5 rounded-xl w-full lg:w-2xl">
+            <div>
+              <button
+                className="flex w-full justify-between cursor-pointer"
+                onClick={() => setLastOpen(!lastOpen)}
+              >
+                <p className="text-md font-bold">Why should I use MindLift?</p>
+                <p>+</p>
+              </button>
+            </div>
+            {lastOpen && (
+              <div>
+                <p className="text-md text-gray-700 pt-3 pb-2">
+                  Think of MindLift as your personal therapist, only that it
+                  costs less and is always available. All you need do is create
+                  an account and start conversing.
+                </p>
+              </div>
+            )}
+          </li>
+        </ul>
+      </div>
     </section>
   );
 }
