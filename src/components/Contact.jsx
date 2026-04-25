@@ -1,9 +1,9 @@
 function Contact() {
   return (
-    <section id="contact">
+    <section id="contact" className="pt-10">
       <div className="flex lg:flex-row flex-col justify-center w-full px-7 lg:px-20 pb-30 gap-20 items-start">
-        <div className="w-50">
-          <div>
+        <div className="lg:w-[50%]">
+          <div className="pb-5">
             <h1 className="text-3xl font-bold">
               Get in touch with <br />
               <span className="font-mono text-[#16A34A] font-extrabold">
@@ -66,7 +66,7 @@ function Contact() {
               ></textarea>
             </div>
 
-            <button className="bg-[#16A34A] text-white lg:w-[20%] rounded-full py-1 shadow-sm cursor-pointer">
+            <button className="bg-[#16A34A] text-white rounded-full py-2 px-6 lg:w-max text-center shadow-sm cursor-pointer">
               Contact us
             </button>
           </form>
