@@ -20,7 +20,7 @@ function Navbar() {
             <a href="#faq" className="hidden lg:block font-medium text-md">
               FAQ
             </a>
-            <a href="#" className="hidden lg:block font-medium text-md">
+            <a href="#contact" className="hidden lg:block font-medium text-md">
               Contact
             </a>
             <button

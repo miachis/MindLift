@@ -5,6 +5,7 @@ import About from "../components/About";
 import DropDownNavbar from "../components/DropDownNavbar";
 import FAQ from "../components/FAQ";
 import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <About />
       <FAQ />
       <Contact />
+      <Footer />
     </>
   );
 }

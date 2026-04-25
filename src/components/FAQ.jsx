@@ -1,16 +1,18 @@
 import { useState } from "react";
 
 function FAQ() {
-  const [firstOpen, setFirstOpen] = useState(false);
-  const [secondOpen, setSecondOpen] = useState(false);
-  const [thirdOpen, setThirdOpen] = useState(false);
-  const [fourthOpen, setFourthOpen] = useState(false);
-  const [fifthOpen, setFifthOpen] = useState(false);
-  const [lastOpen, setLastOpen] = useState(false);
+  const [open, setOpen] = useState({
+    first: false,
+    second: false,
+    third: false,
+    fourth: false,
+    fifth: false,
+    last: false,
+  });
 
   return (
     <section
-      className="flex justify-center space-y-20 lg:gap-30 px-7 lg:px-20 items-start pt-30 flex-col lg:flex-row"
+      className="flex justify-center space-y-20 lg:gap-30 px-7 lg:px-20 items-start pt-40 pb-40 flex-col lg:flex-row"
       id="faq"
     >
       <div>
@@ -28,13 +30,13 @@ function FAQ() {
             <div>
               <button
                 className="flex w-full justify-between cursor-pointer"
-                onClick={() => setFirstOpen(!firstOpen)}
+                onClick={() => setOpen({ ...open, first: !open.first })}
               >
                 <p className="text-md font-bold">What is MindLift?</p>
                 <p>+</p>
               </button>
             </div>
-            {firstOpen && (
+            {open.first && (
               <div className="w-full">
                 <p className="text-md text-gray-700 pt-3 pb-2 w-full">
                   MindLift is your mind's personal buddy. It turns your daily
@@ -50,13 +52,13 @@ function FAQ() {
             <div>
               <button
                 className="flex w-full justify-between cursor-pointer"
-                onClick={() => setSecondOpen(!secondOpen)}
+                onClick={() => setOpen({ ...open, second: !open.second })}
               >
                 <p className="text-md font-bold">Who actually uses it?</p>
                 <p>+</p>
               </button>
             </div>
-            {secondOpen && (
+            {open.second && (
               <div>
                 <p className="text-md text-gray-700 pt-3 pb-2">
                   Absolutely anyone can signup or create an account and use
@@ -70,7 +72,7 @@ function FAQ() {
             <div>
               <button
                 className="flex w-full justify-between cursor-pointer"
-                onClick={() => setThirdOpen(!thirdOpen)}
+                onClick={() => setOpen({ ...open, third: !open.third })}
               >
                 <p className="text-md font-bold">
                   How does MindLift actually work?
@@ -78,7 +80,7 @@ function FAQ() {
                 <p>+</p>
               </button>
             </div>
-            {thirdOpen && (
+            {open.third && (
               <div>
                 <p className="text-md text-gray-700 pt-3 pb-2">
                   MindLift requires you, a user, to give it some challenges or
@@ -94,7 +96,7 @@ function FAQ() {
             <div>
               <button
                 className="flex w-full justify-between cursor-pointer"
-                onClick={() => setFourthOpen(!fourthOpen)}
+                onClick={() => setOpen({ ...open, fourth: !open.fourth })}
               >
                 <p className="text-md font-bold">
                   How quickly will I see results?
@@ -102,7 +104,7 @@ function FAQ() {
                 <p>+</p>
               </button>
             </div>
-            {fourthOpen && (
+            {open.fourth && (
               <div>
                 <p className="text-md text-gray-700 pt-3 pb-2">
                   You can decide to view results daily as you feed your
@@ -116,7 +118,7 @@ function FAQ() {
             <div>
               <button
                 className="flex w-full justify-between cursor-pointer"
-                onClick={() => setFifthOpen(!fifthOpen)}
+                onClick={() => setOpen({ ...open, fifth: !open.fifth })}
               >
                 <p className="text-md font-bold">
                   Do I need to pay for a subscription?
@@ -124,7 +126,7 @@ function FAQ() {
                 <p>+</p>
               </button>
             </div>
-            {fifthOpen && (
+            {open.fifth && (
               <div>
                 <p className="text-md text-gray-700 pt-3 pb-2">
                   Nope. MindLift is 100% free.
@@ -136,13 +138,13 @@ function FAQ() {
             <div>
               <button
                 className="flex w-full justify-between cursor-pointer"
-                onClick={() => setLastOpen(!lastOpen)}
+                onClick={() => setOpen({ ...open, last: !open.last })}
               >
                 <p className="text-md font-bold">Why should I use MindLift?</p>
                 <p>+</p>
               </button>
             </div>
-            {lastOpen && (
+            {open.last && (
               <div>
                 <p className="text-md text-gray-700 pt-3 pb-2">
                   Think of MindLift as your personal therapist, only that it

@@ -1,6 +1,6 @@
 function Header() {
   return (
-    <section className="flex items-center pt-30 pb-10 px-8 lg:px-40">
+    <section className="flex items-center pt-30 pb-20 px-8 lg:px-40 lg:pb-20">
       <div className="flex items-center">
         <div>
           <div className="pb-5">

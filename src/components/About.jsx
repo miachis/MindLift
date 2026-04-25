@@ -78,7 +78,7 @@ function About() {
         </div>
       </div>
 
-      <div className="text-center px-5">
+      <div className="text-center px-5 pt-20">
         <h1 className="text-2xl font-semibold font-serif">
           Turn Every Reaction Into Progress
         </h1>

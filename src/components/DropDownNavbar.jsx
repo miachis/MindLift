@@ -9,7 +9,7 @@ function DropDownNavbar() {
           <a href="#faq">FAQ</a>
         </div>
         <div className="border-b border-gray-300 font-medium text-md py-4">
-          <a href="#">Contact</a>
+          <a href="#contact">Contact</a>
         </div>
       </nav>
 
