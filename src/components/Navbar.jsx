@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import DropDownNavbar from "./DropDownNavbar";
 
@@ -14,13 +15,22 @@ function Navbar() {
           </a>
 
           <nav className="flex gap-10 text-md">
-            <a href="#about" className="hidden lg:block font-medium text-md">
+            <a
+              href="#about"
+              className="hidden lg:block font-medium text-md hover:text-gray-700"
+            >
               About
             </a>
-            <a href="#faq" className="hidden lg:block font-medium text-md">
+            <a
+              href="#faq"
+              className="hidden lg:block font-medium text-md hover:text-gray-700"
+            >
               FAQ
             </a>
-            <a href="#contact" className="hidden lg:block font-medium text-md">
+            <a
+              href="#contact"
+              className="hidden lg:block font-medium text-md hover:text-gray-700"
+            >
               Contact
             </a>
             <button
@@ -36,8 +46,8 @@ function Navbar() {
           </nav>
         </div>
 
-        <div className=" hidden bg-black text-white shadow-md font-bold px-5 py-2 rounded-full text-sm lg:block">
-          <a href="#">Get Started</a>
+        <div className=" hidden bg-black text-white shadow-sm font-bold px-5 py-2 rounded-full text-sm lg:block">
+          <Link to={"login"}>Get Started</Link>
         </div>
       </div>
     </header>

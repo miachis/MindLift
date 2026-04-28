@@ -19,11 +19,15 @@ function About() {
               </p>
             </div>
             <div className="w-full">
-              <p className="text-md text-gray-700">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Perspiciatis laborum optio vero! Non nostrum temporibus
-                inventore magni recusandae eius et minima. Hic praesentium
-                dolorum quis autem deleniti rerum repellendus enim.
+              <p className="text-sm text-gray-700">
+                The power of the mind lies in its ability to shape our thoughts,
+                decisions, and reality. It influences how we perceive
+                challenges, respond to situations, and pursue our goals. A
+                focused and disciplined mind can turn obstacles into
+                opportunities, while a negative mindset can limit growth. By
+                training the mind through positive thinking, self-awareness, and
+                consistency, individuals can improve their mental strength, make
+                better decisions, and achieve personal success.
               </p>
             </div>
           </div>

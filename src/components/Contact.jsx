@@ -13,10 +13,8 @@ function Contact() {
           </div>
           <div className="w-full">
             <p className="text-sm text-gray-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quo
-              itaque in rerum, error esse? Vel quasi magnam beatae quis adipisci
-              laborum dolore rerum? Iure exercitationem ut eaque quos
-              doloremque!
+              Have any suggestions in mind or need more clarity about MindLift?
+              Contact us and get a response within 24 hours.
             </p>
           </div>
         </div>
@@ -32,7 +30,7 @@ function Contact() {
                 type="text"
                 placeholder="Enter your name here"
                 required
-                className="border border-gray-300 pl-4 py-4 rounded-md text-sm"
+                className="border border-gray-300 pl-4 py-4 rounded-md text-sm focus:outline-none focus:border-[#16A34A]"
               />
             </div>
 
@@ -42,7 +40,7 @@ function Contact() {
                 type="email"
                 placeholder="Enter your email address here"
                 required
-                className="border border-gray-300 pl-4 py-4 rounded-md text-sm"
+                className="border border-gray-300 pl-4 py-4 rounded-md text-sm focus:outline-none focus:border-[#16A34A]"
               />
             </div>
 
@@ -52,7 +50,7 @@ function Contact() {
                 type="text"
                 placeholder="Enter your title here"
                 required
-                className="border border-gray-300 pl-4 py-4 rounded-md text-sm"
+                className="border border-gray-300 pl-4 py-4 rounded-md text-sm focus:outline-none focus:border-[#16A34A]"
               />
             </div>
 
@@ -62,7 +60,7 @@ function Contact() {
                 name=""
                 id=""
                 placeholder="Write a message"
-                className="border border-gray-300 pl-4 py-4 rounded-md text-sm"
+                className="border border-gray-300 pl-4 py-4 rounded-md text-sm focus:outline-none focus:border-[#16A34A]"
               ></textarea>
             </div>
 

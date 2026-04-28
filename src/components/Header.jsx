@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Header() {
   return (
     <section className="flex items-center pt-30 pb-20 px-8 lg:px-40 lg:pb-20">
@@ -31,11 +33,11 @@ function Header() {
           </div>
 
           <div className="flex flex-col lg:items-center gap-y-2 lg:gap-x-5 lg:flex-row">
-            <div className="bg-black text-white w-full p-3 rounded-full text-md font-bold text-center shadow-sm lg:px-6 py-2 lg:w-max hover:bg-white hover:border-gray-300 hover:border hover:text-black hover:font-normal">
-              <a href="#">Get Started</a>
+            <div className="bg-black text-white w-full p-3 rounded-full text-md font-bold text-center shadow-sm lg:px-6 py-2 lg:w-max hover:shadow-xl transition duration-200">
+              <Link to={"login"}>Get Started</Link>
             </div>
-            <div className="rounded-full text-md w-full p-3 text-center border shadow-sm border-gray-300 lg:px-6 py-2 lg:w-max hover:bg-black hover:text-white hover:font-bold">
-              <a href="#">Privacy Policy</a>
+            <div className="rounded-full text-md w-full p-3 text-center border shadow-sm border-gray-300 lg:px-6 py-2 lg:w-max hover:shadow-xl transition duration-200">
+              <Link to={"privacy-policy"}>Privacy Policy</Link>
             </div>
           </div>
         </div>
