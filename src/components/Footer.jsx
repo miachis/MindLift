@@ -12,13 +12,13 @@ function Footer() {
           <div>
             <h2 className="font-semibold text-lg">Company</h2>
             <a
-              href="#about"
+              href="/#about"
               className="text-sm pt-3 block hover:text-[#16A34A]"
             >
               About
             </a>
             <a
-              href="#contact"
+              href="/#contact"
               className="text-sm pt-3 block hover:text-[#16A34A]"
             >
               Contact
@@ -27,10 +27,16 @@ function Footer() {
           <div>
             <h2 className="font-semibold text-lg">Legal</h2>
             <Link
-              to={"privacy-policy"}
+              to={"/privacy"}
               className="text-sm pt-3 block hover:text-[#16A34A]"
             >
               Privacy Policy
+            </Link>
+            <Link
+              to={"/terms"}
+              className="text-sm pt-3 block hover:text-[#16A34A]"
+            >
+              Terms of service
             </Link>
           </div>
         </div>

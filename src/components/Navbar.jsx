@@ -47,7 +47,7 @@ function Navbar() {
         </div>
 
         <div className=" hidden bg-black text-white shadow-sm font-bold px-5 py-2 rounded-full text-sm lg:block">
-          <Link to={"login"}>Get Started</Link>
+          <Link to={"/login"}>Get Started</Link>
         </div>
       </div>
     </header>

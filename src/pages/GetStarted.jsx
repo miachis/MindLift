@@ -15,18 +15,50 @@ function GetStarted() {
         </span>
       </div>
       <div className="lg:bg-[#232323] bg-[#191919] text-white h-screen px-10 lg:px-0">
-        <div className="flex flex-col items-center justify-center h-full">
+        <div className="flex flex-col items-center justify-center h-full lg:px-30">
           {/* For smaller screens */}
           <div className="visible lg:hidden pb-6">
             <img src="./white-logo.svg" alt="MindLift logo" />
           </div>
-          <div>
+          <div className="mb-7">
             <h1 className="sm:text-3xl text-lg font-bold">Welcome back</h1>
           </div>
-          <div className="mt-8 mb-4">
+          <div className="w-full flex flex-col">
+            <button className="border border-white/10 flex justify-center rounded-full py-3 cursor-pointer hover:border-white/40 hover:bg-[#333232c9] transition-all">
+              <span className="flex items-center gap-3">
+                <span>
+                  <img
+                    src="./public/google-icon-logo-svgrepo-com.svg"
+                    alt="google icon"
+                    className="max-w-4"
+                  />
+                </span>
+                <span className="font-semibold">Continue with Google</span>
+              </span>
+            </button>
+            <div className="flex items-center justify-center py-6">
+              <div className="grow border-t border-white/10"></div>
+              <p className="text-white/40 text-[12px] px-5">or</p>
+              <div className="grow border-t border-white/10"></div>
+            </div>
+            <form className="flex flex-col gap-5">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                className="rounded-xl px-5 py-3 bg-[#ffffff12] focus:outline-0 text-white text-md border border-transparent hover:border-white/30 transition duration-200"
+              />
+              <button
+                type="submit"
+                className="bg-white cursor-pointer text-black rounded-full py-3 font-semibold text-md hover:bg-white/90 transition-all"
+              >
+                Continue
+              </button>
+            </form>
+          </div>
+          <div className="mt-3 mb-4">
             <p className="text-sm text-white/70">
               Don't have an account?{" "}
-              <span className="text-white font-bold hover:cursor-pointer hover:underline">
+              <span className="text-white font-semibold hover:cursor-pointer hover:underline">
                 <a href="signup">Sign up</a>
               </span>
             </p>

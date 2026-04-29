@@ -57,6 +57,7 @@ function Contact() {
             <div className="flex flex-col gap-3 pb-5">
               <p className="text-md font-bold">Message*</p>
               <textarea
+                required
                 name=""
                 id=""
                 placeholder="Write a message"

@@ -22,6 +22,15 @@ function FAQ() {
             Quick answers to the questions we hear most from users getting
             started with MindLift.
           </p>
+          <p className="text-sm mt-5 text-gray-700">
+            Have more questions?{" "}
+            <a
+              href="#contact"
+              className="text-[#16A34A] hover:cursor-pointer hover:underline"
+            >
+              Contact us.
+            </a>
+          </p>
         </div>
       </div>
       <div className="w-full">

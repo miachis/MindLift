@@ -37,7 +37,7 @@ function Header() {
               <Link to={"login"}>Get Started</Link>
             </div>
             <div className="rounded-full text-md w-full p-3 text-center border shadow-sm border-gray-300 lg:px-6 py-2 lg:w-max hover:shadow-xl transition duration-200">
-              <Link to={"privacy-policy"}>Privacy Policy</Link>
+              <Link to={"privacy"}>Privacy Policy</Link>
             </div>
           </div>
         </div>
