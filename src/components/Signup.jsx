@@ -1,4 +1,12 @@
+import { useState } from "react";
+
 function Signup() {
+  const [userInfo, setUserInfo] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
+
   return (
     <main className="lg:grid grid-cols-2 grid-rows-1 h-screen fixed inset-0 justify-center">
       <div className="hidden bg-[#191919] text-white lg:grid grid-cols-1 grid-rows-3 py-10 pl-10">
@@ -44,17 +52,29 @@ function Signup() {
               <div className="flex gap-5 w-full">
                 <input
                   type="text"
+                  value={userInfo.firstName}
+                  onChange={(e) =>
+                    setUserInfo({ ...userInfo, firstName: e.target.value })
+                  }
                   placeholder="First name"
                   className="w-[50%] rounded-xl px-5 py-3 bg-[#ffffff12] focus:outline-0 text-white text-md border border-transparent hover:border-white/30 transition duration-200"
                 />
                 <input
                   type="text"
+                  value={userInfo.lastName}
+                  onChange={(e) =>
+                    setUserInfo({ ...userInfo, lastName: e.target.value })
+                  }
                   placeholder="Last name"
                   className="w-[50%] rounded-xl px-5 py-3 bg-[#ffffff12] focus:outline-0 text-white text-md border border-transparent hover:border-white/30 transition duration-200"
                 />
               </div>
               <input
                 type="email"
+                value={userInfo.email}
+                onChange={(e) =>
+                  setUserInfo({ ...userInfo, email: e.target.value })
+                }
                 placeholder="Enter your email address"
                 className="rounded-xl px-5 py-3 bg-[#ffffff12] focus:outline-0 text-white text-md border border-transparent hover:border-white/30 transition duration-200"
               />

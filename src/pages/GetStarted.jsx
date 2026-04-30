@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 function GetStarted() {
+  const [userEmail, setUserEmail] = useState("");
+
   return (
     <main className="lg:grid grid-cols-2 grid-rows-1 h-screen fixed inset-0 justify-center">
       <div className="hidden bg-[#191919] text-white lg:grid grid-cols-1 grid-rows-3 py-10 pl-10">
@@ -44,6 +48,8 @@ function GetStarted() {
             <form className="flex flex-col gap-5">
               <input
                 type="email"
+                value={userEmail}
+                onChange={(e) => setUserEmail(e.target.value)}
                 placeholder="Enter your email address"
                 className="rounded-xl px-5 py-3 bg-[#ffffff12] focus:outline-0 text-white text-md border border-transparent hover:border-white/30 transition duration-200"
               />

@@ -1,4 +1,13 @@
+import { useState } from "react";
+
 function Contact() {
+  const [userInput, setUserInput] = useState({
+    name: "",
+    email: "",
+    title: "",
+    message: "",
+  });
+
   return (
     <section id="contact" className="pt-10">
       <div className="flex lg:flex-row flex-col justify-center w-full px-7 lg:px-20 pb-30 gap-20 items-start">
@@ -28,6 +37,10 @@ function Contact() {
               <p className="text-md font-bold">Name*</p>
               <input
                 type="text"
+                value={userInput.name}
+                onChange={(e) => {
+                  setUserInput({ ...userInput, name: e.target.value });
+                }}
                 placeholder="Enter your name here"
                 required
                 className="border border-gray-300 pl-4 py-4 rounded-md text-sm focus:outline-none focus:border-[#16A34A]"
@@ -38,6 +51,10 @@ function Contact() {
               <p className="text-md font-bold">Email*</p>
               <input
                 type="email"
+                value={userInput.email}
+                onChange={(e) =>
+                  setUserInput({ ...userInput, email: e.target.value })
+                }
                 placeholder="Enter your email address here"
                 required
                 className="border border-gray-300 pl-4 py-4 rounded-md text-sm focus:outline-none focus:border-[#16A34A]"
@@ -48,6 +65,10 @@ function Contact() {
               <p className="text-md font-bold">Title*</p>
               <input
                 type="text"
+                value={userInput.title}
+                onChange={(e) =>
+                  setUserInput({ ...userInput, title: e.target.value })
+                }
                 placeholder="Enter your title here"
                 required
                 className="border border-gray-300 pl-4 py-4 rounded-md text-sm focus:outline-none focus:border-[#16A34A]"
@@ -58,8 +79,10 @@ function Contact() {
               <p className="text-md font-bold">Message*</p>
               <textarea
                 required
-                name=""
-                id=""
+                value={userInput.message}
+                onChange={(e) =>
+                  setUserInput({ ...userInput, message: e.target.value })
+                }
                 placeholder="Write a message"
                 className="border border-gray-300 pl-4 py-4 rounded-md text-sm focus:outline-none focus:border-[#16A34A]"
               ></textarea>
