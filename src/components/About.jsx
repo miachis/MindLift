@@ -1,3 +1,6 @@
+import mindImage from "../assets/images/maulana-ahmad-7jK1X2yk-kc-unsplash.png";
+import storyImage from "../assets/images/irvan-maulana-H2mcXb2NOc8-unsplash.png";
+
 function About() {
   return (
     <section className="flex flex-col items-center" id="about">
@@ -5,11 +8,7 @@ function About() {
         <div className="flex pt-20 px-7 lg:px-30 gap-10 items-center w-full flex-col lg:flex-row">
           {/* for large screens */}
           <div className="w-[50%] hidden lg:block">
-            <img
-              src="./public/maulana-ahmad-7jK1X2yk-kc-unsplash.png"
-              alt="the mind"
-              className="w-full"
-            />
+            <img src={mindImage} alt="the mind" className="w-full" />
           </div>
 
           <div className="lg:w-[50%]">
@@ -34,11 +33,7 @@ function About() {
 
           {/* for mobile */}
           <div className="lg:w-[50%] visible lg:hidden">
-            <img
-              src="./public/maulana-ahmad-7jK1X2yk-kc-unsplash.png"
-              alt="the mind"
-              className="w-full"
-            />
+            <img src={mindImage} alt="the mind" className="w-full" />
           </div>
         </div>
 
@@ -156,7 +151,7 @@ function About() {
 
         <div className="lg:w-[50%]">
           <img
-            src="./public/irvan-maulana-H2mcXb2NOc8-unsplash.png"
+            src={storyImage}
             alt="man reading a book"
             className="rounded-xl"
           />

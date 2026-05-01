@@ -1,4 +1,6 @@
 import { useState } from "react";
+import mindLiftWhiteLogo from "../assets/images/white-logo.svg";
+import googleLogo from "../assets/images/google-icon-logo-svgrepo-com.svg";
 
 function GetStarted() {
   const [userEmail, setUserEmail] = useState("");
@@ -6,7 +8,7 @@ function GetStarted() {
   return (
     <main className="lg:grid grid-cols-2 grid-rows-1 h-screen fixed inset-0 justify-center">
       <div className="hidden bg-[#191919] text-white lg:grid grid-cols-1 grid-rows-3 py-10 pl-10">
-        <img src="./white-logo.svg" alt="MindLift logo" />
+        <img src={mindLiftWhiteLogo} alt="MindLift logo" />
         <div className="self-center">
           <p className="text-3xl font-bold">Welcome back to MindLift</p>
           <p className="text-white/70 pt-5 text-md max-w-100">
@@ -22,7 +24,7 @@ function GetStarted() {
         <div className="flex flex-col items-center justify-center h-full lg:px-30">
           {/* For smaller screens */}
           <div className="visible lg:hidden pb-6">
-            <img src="./white-logo.svg" alt="MindLift logo" />
+            <img src={mindLiftWhiteLogo} alt="MindLift logo" />
           </div>
           <div className="mb-7">
             <h1 className="sm:text-3xl text-lg font-bold">Welcome back</h1>
@@ -31,11 +33,7 @@ function GetStarted() {
             <button className="border border-white/10 flex justify-center rounded-full py-3 cursor-pointer hover:border-white/40 hover:bg-[#333232c9] transition-all">
               <span className="flex items-center gap-3">
                 <span>
-                  <img
-                    src="./public/google-icon-logo-svgrepo-com.svg"
-                    alt="google icon"
-                    className="max-w-4"
-                  />
+                  <img src={googleLogo} alt="google icon" className="max-w-4" />
                 </span>
                 <span className="font-semibold">Continue with Google</span>
               </span>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import headerImage from "../assets/images/alghozy--fKdxDYIBko-unsplash.png";
 
 function Header() {
   return (
@@ -26,7 +27,7 @@ function Header() {
           {/* for mobile */}
           <div className="w-full block lg:hidden lg:w-400">
             <img
-              src="./public/alghozy--fKdxDYIBko-unsplash.png"
+              src={headerImage}
               alt="a man reading a book"
               className="w-full"
             />
@@ -45,7 +46,7 @@ function Header() {
         {/* for desktop and larger screens */}
         <div className="hidden w-100 lg:block lg:w-150">
           <img
-            src="./public/alghozy--fKdxDYIBko-unsplash.png"
+            src={headerImage}
             alt="a man reading a book"
             className="w-full"
           />

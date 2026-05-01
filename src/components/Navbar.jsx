@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import DropDownNavbar from "./DropDownNavbar";
+import mindLiftLogo from "../assets/images/logo.svg";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -24,7 +25,7 @@ function Navbar() {
         <div className="w-full flex border justify-between items-center shadow-sm border-white rounded-full backdrop-blur-md bg-white/30 py-2 pl-4 pr-5 mt-3 lg:py-2.5 lg:pl-8 lg:pr-4 2xl:py-5">
           <div className="flex justify-between w-full items-center lg:w-max lg:gap-15">
             <a className="flex items-center" href="#">
-              <img src="./logo.svg" className="h-6 lg:h-7" />
+              <img src={mindLiftLogo} className="h-6 lg:h-7" />
               <p className="text-2xl font-bold">MindLift</p>
             </a>
 
