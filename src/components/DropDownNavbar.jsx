@@ -15,7 +15,7 @@ function DropDownNavbar() {
         </div>
       </nav>
 
-      <div className="flex flex-col gap-2 px-6 py-3 mt-60">
+      <div className="flex flex-col gap-2 px-6 py-3">
         <div className="bg-black rounded-full text-white shadow-md w-full text-center p-3 font-semibold text-md">
           <Link to={"/signup"}>Get started</Link>
         </div>

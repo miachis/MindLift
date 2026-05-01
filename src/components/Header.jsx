@@ -29,7 +29,7 @@ function Header() {
             <img
               src={headerImage}
               alt="a man reading a book"
-              className="w-full"
+              className="w-full block"
             />
           </div>
 
