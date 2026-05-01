@@ -25,7 +25,7 @@ function Header() {
           </div>
 
           {/* for mobile */}
-          <div className="w-full block lg:hidden lg:w-400">
+          <div className="w-full block lg:hidden border-0 lg:w-400 mb-10">
             <img
               src={headerImage}
               alt="a man reading a book"

@@ -32,7 +32,7 @@ function About() {
           </div>
 
           {/* for mobile */}
-          <div className="lg:w-[50%] visible lg:hidden">
+          <div className="lg:w-[50%] visible lg:hidden border-0 mb-5">
             <img src={mindImage} alt="the mind" className="w-full" />
           </div>
         </div>
