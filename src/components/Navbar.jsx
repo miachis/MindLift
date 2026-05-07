@@ -30,23 +30,24 @@ function Navbar() {
             </a>
 
             <nav className="flex gap-10 text-md">
-              <a
-                href="#about"
+              <Link
+                to={"/myspace"}
                 className="hidden lg:block font-medium text-md hover:text-gray-700"
               >
-                About
-              </a>
-              <a
-                href="#faq"
-                className="hidden lg:block font-medium text-md hover:text-gray-700"
-              >
-                FAQ
-              </a>
+                Dashboard
+              </Link>
               <a
                 href="#contact"
                 className="hidden lg:block font-medium text-md hover:text-gray-700"
               >
                 Contact
+              </a>
+              <a
+                href="https://github.com/miachis/MindLift"
+                target="_blank"
+                className="hidden lg:block font-medium text-md hover:text-gray-700"
+              >
+                GitHub
               </a>
               <button
                 className="cursor-pointer lg:hidden flex items-center justify-center w-10 h-10 rounded-full"

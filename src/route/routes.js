@@ -4,6 +4,7 @@ import PrivacyPolicy from "../pages/PrivacyPolicy";
 import GetStarted from "../pages/GetStarted";
 import Signup from "../components/Signup";
 import Terms from "../components/Terms";
+import MySpace from "../pages/MySpace";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "signup",
     Component: Signup,
+  },
+  {
+    path: "myspace",
+    Component: MySpace,
   },
 ]);
 
