@@ -5,6 +5,12 @@ import GetStarted from "../pages/GetStarted";
 import Signup from "../components/Signup";
 import Terms from "../components/Terms";
 import MySpace from "../pages/MySpace";
+import DailyReports from "../components/DailyReports";
+import WeeklyReports from "../components/WeeklyReports";
+import NewReport from "../components/NewReport";
+import Account from "../components/Account";
+import MySpaceContent from "../components/MySpaceContent";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +36,17 @@ const router = createBrowserRouter([
   {
     path: "myspace",
     Component: MySpace,
+    children: [
+      { index: true, Component: MySpaceContent },
+      { path: "daily-reports", Component: DailyReports },
+      { path: "weekly-reports", Component: WeeklyReports },
+      { path: "new-report", Component: NewReport },
+      { path: "account", Component: Account },
+    ],
+  },
+  {
+    path: "*",
+    Component: NotFound,
   },
 ]);
 

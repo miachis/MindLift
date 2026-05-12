@@ -2,6 +2,42 @@ import mindImage from "../assets/images/maulana-ahmad-7jK1X2yk-kc-unsplash.png";
 import storyImage from "../assets/images/irvan-maulana-H2mcXb2NOc8-unsplash.png";
 
 function About() {
+  const notes = [
+    {
+      heading: "Mental Growth",
+      description:
+        "The mind has the ability to grow, adapt, and improve through learning and daily experiences.",
+    },
+    {
+      heading: "Decision Making",
+      description:
+        "It plays a key role in how we respond to situations and make choices in everyday life.",
+    },
+    {
+      heading: "Emotional Control",
+      description:
+        "A strong mind helps manage emotions, reducing stress and improving overall well-being.",
+    },
+    {
+      heading: "Self-Improvement",
+      description:
+        "With the right habits, the mind can be trained to think better, act smarter, and live more intentionally.",
+    },
+  ];
+
+  const reports = [
+    {
+      heading: "Daily Insights",
+      description:
+        "Stay consistent with daily reflections. Get immediate feedback on your actions and build better habits one decision at a time.",
+    },
+    {
+      heading: "Weekly Overview",
+      description:
+        "Zoom out and see the bigger picture. Receive a full breakdown of your patterns, progress, and areas for improvement over the week.",
+    },
+  ];
+
   return (
     <section className="flex flex-col items-center" id="about">
       <div>
@@ -38,42 +74,21 @@ function About() {
         </div>
 
         <div className="flex gap-8 px-20 pt-10 pb-30 flex-col lg:flex-row">
-          <div className="bg-amber-100 py-8 px-4 rounded-md">
-            <h2 className="text-lg font-serif font-semibold w-max">
-              Mental Growth
-            </h2>
-            <p className="w-full text-gray-700 text-sm pt-3">
-              The mind has the ability to grow, adapt, and improve through
-              learning and daily experiences.
-            </p>
-          </div>
-          <div className="bg-amber-100 py-8 px-4 rounded-md">
-            <h2 className="text-lg font-serif font-semibold w-max">
-              Decision Making
-            </h2>
-            <p className="w-full text-gray-700 text-sm pt-3">
-              It plays a key role in how we respond to situations and make
-              choices in everyday life.
-            </p>
-          </div>
-          <div className="bg-amber-100 py-8 px-4 rounded-md">
-            <h2 className="text-lg font-serif font-semibold w-max">
-              Emotional Control
-            </h2>
-            <p className="w-full text-gray-700 text-sm pt-3">
-              A strong mind helps manage emotions, reducing stress and improving
-              overall well-being.
-            </p>
-          </div>
-          <div className="bg-amber-100 py-8 px-4 rounded-md">
-            <h2 className="text-lg font-serif font-semibold w-max">
-              Self-Improvement
-            </h2>
-            <p className="w-full text-gray-700 text-sm pt-3">
-              With the right habits, the mind can be trained to think better,
-              act smarter, and live more intentionally.
-            </p>
-          </div>
+          {notes.map((note) => {
+            return (
+              <div
+                key={note.heading}
+                className="bg-amber-100 py-8 px-4 rounded-md"
+              >
+                <h2 className="text-lg font-serif font-semibold w-max">
+                  {note.heading}
+                </h2>
+                <p className="w-full text-gray-700 text-sm pt-3">
+                  {note.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
 
@@ -93,24 +108,21 @@ function About() {
       </div>
 
       <div className="flex justify-center max-lg:items-center w-full mb-10 lg:w-[50%] px-4 py-8 gap-20 flex-col lg:flex-row">
-        <div className="flex flex-col items-center max-lg:w-[80%] border border-[#16A34A] pt-20 pb-20 pl-1 pr-1 lg:pt-30 lg:pb-8 lg:px-8 rounded-md cursor-pointer shadow-sm transition duration-300 hover:-translate-y-2 hover:scale-105 hover:shadow-xl">
-          <h2 className="text-2xl font-bold font-serif pb-5 max-lg:text-center lg:w-full">
-            Daily Insights
-          </h2>
-          <p className="text-sm text-gray-700 w-[80%] max-lg:text-center lg:w-full">
-            Stay consistent with daily reflections. Get immediate feedback on
-            your actions and build better habits one decision at a time.
-          </p>
-        </div>
-        <div className="flex flex-col items-center max-lg:w-[80%] border border-[#16A34A] pt-20 pb-20 pl-1 pr-1 lg:pt-30 lg:pb-8 lg:px-8 rounded-md cursor-pointer shadow-sm transition duration-300 hover:-translate-y-2 hover:scale-105 hover:shadow-xl">
-          <h2 className="text-2xl font-bold font-serif pb-5 max-lg:text-center lg:w-full">
-            Weekly Overview
-          </h2>
-          <p className="text-sm text-gray-700 w-[80%] max-lg:text-center lg:w-full">
-            Zoom out and see the bigger picture. Receive a full breakdown of
-            your patterns, progress, and areas for improvement over the week.
-          </p>
-        </div>
+        {reports.map((report) => {
+          return (
+            <div
+              key={report.heading}
+              className="flex flex-col items-center max-lg:w-[80%] border border-[#16A34A] pt-20 pb-20 pl-1 pr-1 lg:pt-30 lg:pb-8 lg:px-8 rounded-md cursor-pointer shadow-sm transition duration-300 hover:-translate-y-2 hover:scale-105 hover:shadow-xl"
+            >
+              <h2 className="text-2xl font-bold font-serif pb-5 max-lg:text-center lg:w-full">
+                {report.heading}
+              </h2>
+              <p className="text-sm text-gray-700 w-[80%] max-lg:text-center lg:w-full">
+                {report.description}
+              </p>
+            </div>
+          );
+        })}
       </div>
 
       <div className="flex pt-20 px-7 lg:p-20 flex-col lg:flex-row gap-10">
