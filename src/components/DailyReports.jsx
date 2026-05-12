@@ -7,7 +7,7 @@ function DailyReports() {
         <h1 className="text-2xl font-bold mb-1">Daily Reports</h1>
         <p className="text-sm text-gray-500">Track your daily reports here.</p>
       </div>
-      <div className="bg-white h-[80vh] shadow-lg hover:shadow-xl rounded-xl"></div>
+      <div className="bg-white min-h-[80dvh] shadow-lg hover:shadow-xl rounded-xl"></div>
     </main>
   );
 }

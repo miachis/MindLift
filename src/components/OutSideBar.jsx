@@ -41,7 +41,7 @@ function OutSideBar({ otherSideBar, setOtherSideBar }) {
   ];
 
   return (
-    <aside className="h-screen z-90000 shadow-sm bg-black/30 inset-0 fixed backdrop-blur-sm">
+    <aside className="min-h-dvh z-90000 shadow-sm bg-black/30 inset-0 fixed backdrop-blur-sm">
       <div
         className={`bg-white h-full w-[70%] flex flex-col justify-between pt-3 pb-2 px-3`}
         onClick={() => open && setOpen(false)}
