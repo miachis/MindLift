@@ -12,7 +12,7 @@ function FAQ() {
 
   return (
     <section
-      className="flex justify-center space-y-20 lg:gap-30 px-7 lg:px-20 items-start pt-40 pb-40 flex-col lg:flex-row"
+      className="flex justify-between space-y-20 lg:gap-30 px-7 lg:px-20 items-start pt-40 pb-40 flex-col lg:flex-row"
       id="faq"
     >
       <div>
@@ -33,7 +33,7 @@ function FAQ() {
           </p>
         </div>
       </div>
-      <div className="w-full">
+      <div>
         <ul className="flex flex-col gap-3">
           <li className="border border-gray-300 px-6 py-5 lg:px-7 lg:py-5 rounded-xl w-full lg:w-2xl">
             <div>
