@@ -1,44 +1,38 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import mindLiftWhiteLogo from "../assets/images/white-logo.svg";
 import googleLogo from "../assets/images/google-icon-logo-svgrepo-com.svg";
-import { useNavigate } from "react-router-dom";
-import Error from "./Error";
+import Error from "../components/Error";
 
-function Signup() {
-	const [userInfo, setUserInfo] = useState({
-		firstName: "",
-		lastName: "",
-		email: "",
-	});
+function Login() {
+	const [userEmail, setUserEmail] = useState("");
+	const [loading, setLoading] = useState(false);
 	const [otpSent, setOtpSent] = useState(false);
 	const [otp, setOtp] = useState("");
-	const [loading, setLoading] = useState(false);
 	const [otpLoading, setOtpLoading] = useState(false);
 	const [error, setError] = useState("");
 
 	const navigate = useNavigate();
 
-	const onFormSubmit = async (e, firstName, lastName, userEmail) => {
+	const loginHandler = async (e, email) => {
 		e.preventDefault();
-		if (firstName.length > 0 && userEmail.length > 0) {
+		if (userEmail.length > 0) {
 			setLoading(true);
 			try {
-				const url = "http://localhost:8080/signup";
-				const response = await fetch(url, {
+				const response = await fetch("http://localhost:8080/login", {
 					method: "POST",
-					body: JSON.stringify({ firstName, lastName, userEmail }),
+					body: JSON.stringify({ userEmail: email }),
 					headers: {
 						"Content-Type": "application/json",
 					},
 				});
 
 				if (!response.ok) {
-					if (response.status === 400) {
-						const error = await response.json();
-						setError("First name must be less than 50 characters");
+					if (response.status === 404) {
+						setError("User not found");
 					}
-					if (response.status === 403) {
-						setError("Email is taken");
+					if (response.status === 400) {
+						setError("Ensure email is correct");
 					}
 					if (response.status === 500) {
 						setError("An error occured");
@@ -51,13 +45,17 @@ function Signup() {
 				}
 
 				const data = await response.json();
-				setLoading(false);
-
+				// if email was sent vrify the otp
+				// if otp is correct, fetch user from db
 				if (data.isEmailSent) {
 					setOtpSent(true);
-					return;
+				} else {
+					setError("OTP not sent");
 				}
-				navigate("/myspace", { replace: true });
+				setLoading(false);
+				setTimeout(() => {
+					setError("");
+				}, 3000);
 			} catch (error) {
 				setError("An error occured");
 				setLoading(false);
@@ -68,13 +66,12 @@ function Signup() {
 		}
 	};
 
-	const otpVerification = async (e, otp, userEmail) => {
+	const loginOtpHandler = async (e) => {
 		e.preventDefault();
-		if (otp.length > 0 && userEmail.length > 0) {
+		if (otp.length > 0) {
 			setOtpLoading(true);
 			try {
-				const url = "http://localhost:8080/otp/api/v1/auth/verify-otp";
-				const response = await fetch(url, {
+				const response = await fetch("http://localhost:8080/login/otp", {
 					method: "POST",
 					body: JSON.stringify({ otp, userEmail }),
 					headers: {
@@ -84,10 +81,8 @@ function Signup() {
 				});
 
 				if (!response.ok) {
-					if (response.status === 500) {
-						setError("An error occured");
-					} else {
-						setError("OTP is either incorrect or has expired");
+					if (response.status === 403) {
+						setError("Incorrect or expired OTP");
 					}
 					setOtpLoading(false);
 					setTimeout(() => {
@@ -97,11 +92,16 @@ function Signup() {
 				}
 
 				const data = await response.json();
-				setOtpLoading(false);
-				navigate("/myspace", { replace: true });
+
+				if (data.success) {
+					navigate("/myspace", { replace: true });
+				}
 			} catch (error) {
 				setError("An error occured");
 				setOtpLoading(false);
+				setTimeout(() => {
+					setError("");
+				}, 3000);
 			}
 		}
 	};
@@ -113,9 +113,10 @@ function Signup() {
 				<div className="hidden bg-[#191919] text-white lg:grid grid-cols-1 grid-rows-3 py-10 pl-10">
 					<img src={mindLiftWhiteLogo} alt="MindLift logo" />
 					<div className="self-center">
-						<p className="text-3xl font-bold">Start making better choices</p>
+						<p className="text-3xl font-bold">Welcome back to MindLift</p>
 						<p className="text-white/70 pt-5 text-md max-w-100">
-							Join the winning team and stop overthinking decisions.
+							Sign in to track your daily challenges, manage your profile and
+							get real time suggestions.
 						</p>
 					</div>
 					<span className="self-end text-[12px] font-semibold text-white/40">
@@ -128,14 +129,12 @@ function Signup() {
 						<div className="visible lg:hidden pb-6">
 							<img src={mindLiftWhiteLogo} alt="MindLift logo" />
 						</div>
-						<div>
-							<h1 className="mb-7 sm:text-3xl text-lg font-bold">
-								Get started
-							</h1>
+						<div className="mb-7">
+							<h1 className="sm:text-3xl text-lg font-bold">Welcome back</h1>
 						</div>
 						<div className="w-full flex flex-col">
 							{otpSent ? (
-								<form onSubmit={(e) => otpVerification(e, otp, userInfo.email)}>
+								<form onSubmit={(e) => loginOtpHandler(e)}>
 									<input
 										type="text"
 										disabled={otpLoading}
@@ -159,44 +158,12 @@ function Signup() {
 							) : (
 								<form
 									className="flex flex-col gap-5"
-									onSubmit={(e) =>
-										onFormSubmit(
-											e,
-											userInfo.firstName,
-											userInfo.lastName,
-											userInfo.email,
-										)
-									}
+									onSubmit={(e) => loginHandler(e, userEmail)}
 								>
-									<div className="flex gap-5 w-full">
-										<input
-											type="text"
-											disabled={loading}
-											value={userInfo.firstName}
-											onChange={(e) =>
-												setUserInfo({ ...userInfo, firstName: e.target.value })
-											}
-											placeholder="First name"
-											className="w-[50%] rounded-xl px-5 py-3 bg-[#ffffff12] focus:outline-0 text-white text-md border border-transparent hover:border-white/30 transition duration-200"
-										/>
-										<input
-											type="text"
-											disabled={loading}
-											value={userInfo.lastName}
-											onChange={(e) =>
-												setUserInfo({ ...userInfo, lastName: e.target.value })
-											}
-											placeholder="Last name (Optional)"
-											className="w-[50%] rounded-xl px-5 py-3 bg-[#ffffff12] focus:outline-0 text-white text-md border border-transparent hover:border-white/30 transition duration-200"
-										/>
-									</div>
 									<input
 										type="email"
-										disabled={loading}
-										value={userInfo.email}
-										onChange={(e) =>
-											setUserInfo({ ...userInfo, email: e.target.value })
-										}
+										value={userEmail}
+										onChange={(e) => setUserEmail(e.target.value)}
 										placeholder="Enter your email address"
 										className="rounded-xl px-5 py-3 bg-[#ffffff12] focus:outline-0 text-white text-md border border-transparent hover:border-white/30 transition duration-200"
 									/>
@@ -212,9 +179,9 @@ function Signup() {
 						</div>
 						<div className="mt-3 mb-4">
 							<p className="text-sm text-white/70">
-								Already have an account?{" "}
+								Don't have an account?{" "}
 								<span className="text-white font-semibold hover:cursor-pointer hover:underline">
-									<a href="login">Log in</a>
+									<a href="signup">Sign up</a>
 								</span>
 							</p>
 						</div>
@@ -237,4 +204,4 @@ function Signup() {
 	);
 }
 
-export default Signup;
+export default Login;

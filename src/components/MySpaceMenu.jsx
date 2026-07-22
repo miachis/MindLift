@@ -1,10 +1,17 @@
 import defaultProfilePicture from "../assets/images/user.png";
 import settingsIcon from "../assets/images/setting.png";
 import logoutIcon from "../assets/images/logout.png";
+import { signOutHandler } from "./Account";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import { userContext } from "../pages/MySpace";
+import { useContext } from "react";
 
 function MySpaceMenu({ close }) {
+	const { userInfo } = useContext(userContext);
+	const navigate = useNavigate();
+
 	return (
 		<div className="shadow-xl rounded-xl">
 			<div className="border-b border-b-gray-200 flex p-3 items-center gap-3">
@@ -16,8 +23,12 @@ function MySpaceMenu({ close }) {
 					/>
 				</span>
 				<div className="flex flex-col">
-					<span className="font-semibold">John Smith</span>
-					<span className="text-sm text-gray-700">johnsmith@gmail.com</span>
+					<span className="font-semibold truncate">
+						{userInfo.firstName} {userInfo.lastName}
+					</span>
+					<span className="text-sm text-gray-700 truncate">
+						{userInfo.email}
+					</span>
 				</div>
 			</div>
 
@@ -36,7 +47,9 @@ function MySpaceMenu({ close }) {
 				<div className="p-3 hover:bg-gray-200 rounded-xl">
 					<Link className="flex items-center gap-2" to={"logout"}>
 						<img src={logoutIcon} alt="log out icone" className="w-3" />
-						<span>Log out</span>
+						<span onClick={() => signOutHandler(userInfo, navigate)}>
+							Log out
+						</span>
 					</Link>
 				</div>
 			</div>

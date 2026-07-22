@@ -9,12 +9,15 @@ import closeIcon from "../assets/images/close-x-svgrepo-com.svg";
 
 import MySpaceMenu from "./MySpaceMenu";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { userContext } from "../pages/MySpace";
 
 function OutSideBar({ otherSideBar, setOtherSideBar }) {
 	// open state controls the showing of the profile settings and logout button
 	const [open, setOpen] = useState(false);
+
+	const { userInfo } = useContext(userContext);
 
 	// otherSideBar state controls the closing of the sidebar
 
@@ -107,7 +110,7 @@ function OutSideBar({ otherSideBar, setOtherSideBar }) {
 									alt="default user profile picture"
 									className="w-8"
 								/>
-								<p className={`font-semibold text-md`}>John</p>
+								<p className={`font-semibold text-md`}>{userInfo.firstName}</p>
 							</div>
 							<div>
 								<span>

@@ -9,9 +9,11 @@ import upAndDownIcon from "../assets/images/up-and-down-arrow.png";
 
 import MySpaceMenu from "./MySpaceMenu";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import OutSideBar from "./OutSideBar";
+
+import { userContext } from "../pages/MySpace";
 
 function MySpaceSiderbar({ closeSideBar, setCloseSideBar }) {
 	const [open, setOpen] = useState(false);
@@ -34,6 +36,8 @@ function MySpaceSiderbar({ closeSideBar, setCloseSideBar }) {
 			link: "weekly-reports",
 		},
 	];
+
+	const { userInfo } = useContext(userContext);
 
 	return (
 		<>
@@ -65,10 +69,12 @@ function MySpaceSiderbar({ closeSideBar, setCloseSideBar }) {
 								className="hover:cursor-pointer"
 								onClick={() => {
 									// when on smaller screens bring the sidebar from the left
-									if (window.innerWidth >= 768) {
+									if (window.innerWidth <= 768) {
+										setOtherSideBar(true);
+									} else if (window.innerWidth > 768) {
 										setCloseSideBar(!closeSideBar);
 									} else {
-										setOtherSideBar(true);
+										setCloseSideBar(!closeSideBar);
 									}
 								}}
 							>
@@ -130,7 +136,7 @@ function MySpaceSiderbar({ closeSideBar, setCloseSideBar }) {
 
 						<div className="w-full border-t border-t-gray-300 mt-2 pt-2">
 							<div
-								className={`w-full flex items-center justify-between ${!closeSideBar ? "p-0" : "p-2"} cursor-pointer hover:bg-gray-100 hover:rounded-xl`}
+								className={`w-full flex items-center justify-between ${!closeSideBar ? "p-0 justify-center" : "p-2"} cursor-pointer hover:bg-gray-100 hover:rounded-xl`}
 								onClick={() => {
 									if (!closeSideBar) {
 										setCloseSideBar(!closeSideBar);
@@ -147,7 +153,7 @@ function MySpaceSiderbar({ closeSideBar, setCloseSideBar }) {
 									<p
 										className={`font-semibold text-md ${!closeSideBar ? "lg:hidden" : ""}`}
 									>
-										John
+										{userInfo.firstName}
 									</p>
 								</div>
 								<div className={`${!closeSideBar ? "lg:hidden" : ""}`}>

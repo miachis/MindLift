@@ -24,7 +24,7 @@ function Navbar() {
 			<header className="sticky top-0 z-100 px-6 flex justify-center items-center">
 				<div className="w-full flex border justify-between items-center shadow-sm border-white rounded-full backdrop-blur-md bg-white/30 py-2 pl-4 pr-5 mt-3 lg:py-2.5 lg:pl-8 lg:pr-4 2xl:py-5">
 					<div className="flex justify-between w-full items-center lg:w-max lg:gap-15">
-						<a className="flex items-center" href="#">
+						<a className="flex items-center" href="/">
 							<img src={mindLiftLogo} className="h-6 lg:h-7" />
 							<p className="text-2xl font-bold">MindLift</p>
 						</a>
