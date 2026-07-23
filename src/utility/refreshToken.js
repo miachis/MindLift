@@ -1,5 +1,7 @@
+const refreshURL = "https://mindlift-be.onrender.com/refresh";
+
 export default async function useRefreshToken(navigate, setError) {
-	const refreshTokenResponse = await fetch("http://localhost:8080/refresh", {
+	const refreshTokenResponse = await fetch(refreshURL, {
 		method: "POST",
 		credentials: "include",
 	});

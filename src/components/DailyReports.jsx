@@ -13,12 +13,14 @@ function DailyReports() {
 	const [error, setError] = useState();
 	const navigate = useNavigate();
 
+	const dailyReportsURL = "https://mindlift-be.onrender.com/reports/daily";
+
 	useEffect(() => {
 		fetchReport();
 	}, []);
 
 	const fetchReport = async () => {
-		const response = await fetch("http://localhost:8080/reports/daily", {
+		const response = await fetch(dailyReportsURL, {
 			method: "GET",
 			credentials: "include",
 		});
@@ -31,13 +33,10 @@ function DailyReports() {
 			);
 
 			if (isTokenRefreshed) {
-				const retryResponse = await fetch(
-					"http://localhost:8080/reports/daily",
-					{
-						method: "GET",
-						credentials: "include",
-					},
-				);
+				const retryResponse = await fetch(dailyReportsURL, {
+					method: "GET",
+					credentials: "include",
+				});
 				const result = await retryResponse.json();
 				const ungroup = result.reports.dailyReports;
 				const groupedReports = groupReports(ungroup);
@@ -127,7 +126,7 @@ function DailyReports() {
 														onClick={async (e) => {
 															e.preventDefault();
 															const response = await fetch(
-																`http://localhost:8080/reports/daily/${data.id}`,
+																`https://mindlift-be.onrender.com/reports/daily/${data.id}`,
 																{
 																	method: "DELETE",
 																	credentials: "include",

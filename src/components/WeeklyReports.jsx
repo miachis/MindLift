@@ -10,9 +10,11 @@ function WeeklyReports() {
 	const navigate = useNavigate();
 	const [error, setError] = useState("");
 
+	const weeklyReportsURL = " https://mindlift-be.onrender.com/reports/weekly";
+
 	useEffect(() => {
 		async function fetchReports() {
-			const response = await fetch("http://localhost:8080/reports/weekly", {
+			const response = await fetch(weeklyReportsURL, {
 				method: "GET",
 				credentials: "include",
 			});
@@ -40,7 +42,7 @@ function WeeklyReports() {
 
 			if (day === 0) {
 				// create report
-				const response = await fetch("http://localhost:8080/reports/weekly", {
+				const response = await fetch(weeklyReportsURL, {
 					method: "POST",
 					credentials: "include",
 					body: JSON.stringify({ id: userInfo.id }),

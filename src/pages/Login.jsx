@@ -12,6 +12,9 @@ function Login() {
 	const [otpLoading, setOtpLoading] = useState(false);
 	const [error, setError] = useState("");
 
+	const loginHandlerURL = "https://mindlift-be.onrender.com/login";
+	const loginOTPHandlerURL = "https://mindlift-be.onrender.com/login/otp";
+
 	const navigate = useNavigate();
 
 	const loginHandler = async (e, email) => {
@@ -19,7 +22,7 @@ function Login() {
 		if (userEmail.length > 0) {
 			setLoading(true);
 			try {
-				const response = await fetch("http://localhost:8080/login", {
+				const response = await fetch(loginHandlerURL, {
 					method: "POST",
 					body: JSON.stringify({ userEmail: email }),
 					headers: {
@@ -71,7 +74,7 @@ function Login() {
 		if (otp.length > 0) {
 			setOtpLoading(true);
 			try {
-				const response = await fetch("http://localhost:8080/login/otp", {
+				const response = await fetch(loginOTPHandlerURL, {
 					method: "POST",
 					body: JSON.stringify({ otp, userEmail }),
 					headers: {

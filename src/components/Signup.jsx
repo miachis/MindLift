@@ -16,6 +16,10 @@ function Signup() {
 	const [otpLoading, setOtpLoading] = useState(false);
 	const [error, setError] = useState("");
 
+	const signupURL = "https://mindlift-be.onrender.com/signup";
+	const otpVerificationURL =
+		"https://mindlift-be.onrender.com/otp/api/v1/auth/verify-otp";
+
 	const navigate = useNavigate();
 
 	const onFormSubmit = async (e, firstName, lastName, userEmail) => {
@@ -23,8 +27,7 @@ function Signup() {
 		if (firstName.length > 0 && userEmail.length > 0) {
 			setLoading(true);
 			try {
-				const url = "http://localhost:8080/signup";
-				const response = await fetch(url, {
+				const response = await fetch(signupURL, {
 					method: "POST",
 					body: JSON.stringify({ firstName, lastName, userEmail }),
 					headers: {
@@ -73,8 +76,7 @@ function Signup() {
 		if (otp.length > 0 && userEmail.length > 0) {
 			setOtpLoading(true);
 			try {
-				const url = "http://localhost:8080/otp/api/v1/auth/verify-otp";
-				const response = await fetch(url, {
+				const response = await fetch(otpVerificationURL, {
 					method: "POST",
 					body: JSON.stringify({ otp, userEmail }),
 					headers: {

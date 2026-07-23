@@ -7,8 +7,18 @@ import { useNavigate } from "react-router-dom";
 import { userContext } from "../pages/MySpace";
 import useRefreshToken from "../utility/refreshToken";
 
+const signOutHandlerURL =
+	"https://mindlift-be.onrender.com/account/api/signout";
+const changeUsernameURL =
+	"https://mindlift-be.onrender.com/account/api/change-username";
+const sendOTPHandlerURL =
+	"https://mindlift-be.onrender.com/otp/api/v1/auth/get-otp";
+const verifyOTPHandlerURL =
+	"https://mindlift-be.onrender.com/otp/api/v1/auth/verify-otp";
+const deleteAccountURL = "https://mindlift-be.onrender.com/account/api/delete";
+
 export const signOutHandler = async (userInfo, navigate) => {
-	const response = await fetch("http://localhost:8080/account/api/signout", {
+	const response = await fetch(signOutHandlerURL, {
 		method: "POST",
 		body: JSON.stringify({ email: userInfo.email }),
 		headers: {
@@ -53,17 +63,14 @@ function Account() {
 		}
 
 		setChangeNameLoading(true);
-		const response = await fetch(
-			"http://localhost:8080/account/api/change-username",
-			{
-				method: "POST",
-				body: JSON.stringify({ firstName, lastName, email }),
-				headers: {
-					"Content-Type": "application/json",
-				},
-				credentials: "include",
+		const response = await fetch(changeUsernameURL, {
+			method: "POST",
+			body: JSON.stringify({ firstName, lastName, email }),
+			headers: {
+				"Content-Type": "application/json",
 			},
-		);
+			credentials: "include",
+		});
 
 		if (!response.ok) {
 			if (response.status === 404) {
@@ -80,17 +87,14 @@ function Account() {
 				);
 				// retry the request
 				if (tokenIsRefreshed) {
-					const result = await fetch(
-						"http://localhost:8080/account/api/change-username",
-						{
-							method: "POST",
-							body: JSON.stringify({ firstName, lastName, email }),
-							headers: {
-								"Content-Type": "application/json",
-							},
-							credentials: "include",
+					const result = await fetch(changeUsernameURL, {
+						method: "POST",
+						body: JSON.stringify({ firstName, lastName, email }),
+						headers: {
+							"Content-Type": "application/json",
 						},
-					);
+						credentials: "include",
+					});
 
 					const data = await result.json();
 					setUserInfo(data.user);
@@ -120,17 +124,14 @@ function Account() {
 	const sendOTPHandler = async (e, userEmail) => {
 		e.preventDefault();
 		setOtpLoading(true);
-		const response = await fetch(
-			"http://localhost:8080/otp/api/v1/auth/get-otp",
-			{
-				method: "POST",
-				body: JSON.stringify({ userEmail }),
-				credentials: "include",
-				headers: {
-					"Content-Type": "application/json",
-				},
+		const response = await fetch(sendOTPHandlerURL, {
+			method: "POST",
+			body: JSON.stringify({ userEmail }),
+			credentials: "include",
+			headers: {
+				"Content-Type": "application/json",
 			},
-		);
+		});
 
 		if (!response.ok) {
 			setError("An error occured");
@@ -151,17 +152,14 @@ function Account() {
 		e.preventDefault();
 		setOtpLoading(true);
 		if (otp.length != 0) {
-			const response = await fetch(
-				"http://localhost:8080/otp/api/v1/auth/verify-otp",
-				{
-					method: "POST",
-					body: JSON.stringify({ otp, userEmail: userInfo.email }),
-					headers: {
-						"Content-Type": "application/json",
-					},
-					credentials: "include",
+			const response = await fetch(verifyOTPHandlerURL, {
+				method: "POST",
+				body: JSON.stringify({ otp, userEmail: userInfo.email }),
+				headers: {
+					"Content-Type": "application/json",
 				},
-			);
+				credentials: "include",
+			});
 
 			if (!response.ok) {
 				if (response.status === 401) {
@@ -175,7 +173,7 @@ function Account() {
 					);
 					// retry request
 					if (isTokenRefreshed) {
-						await fetch("http://localhost:8080/otp/api/v1/auth/verify-otp", {
+						await fetch(verifyOTPHandlerURL, {
 							method: "POST",
 							body: JSON.stringify({ otp, userEmail: userInfo.email }),
 							headers: {
@@ -207,7 +205,7 @@ function Account() {
 		e.preventDefault();
 
 		setDeleteAccountLoading(true);
-		const response = await fetch("http://localhost:8080/account/api/delete", {
+		const response = await fetch(deleteAccountURL, {
 			method: "DELETE",
 			credentials: "include",
 			headers: {
@@ -221,17 +219,14 @@ function Account() {
 				const isTokenRefreshed = await useRefreshToken(navigate, setError);
 
 				if (isTokenRefreshed) {
-					const response = await fetch(
-						"http://localhost:8080/account/api/delete",
-						{
-							method: "DELETE",
-							credentials: "include",
-							headers: {
-								"Content-Type": "application/json",
-							},
-							body: JSON.stringify({ email: userInfo.email }),
+					const response = await fetch(deleteAccountURL, {
+						method: "DELETE",
+						credentials: "include",
+						headers: {
+							"Content-Type": "application/json",
 						},
-					);
+						body: JSON.stringify({ email: userInfo.email }),
+					});
 
 					const data = await response.json();
 

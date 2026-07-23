@@ -18,12 +18,14 @@ function MySpace() {
 	const [userInfo, setUserInfo] = useState();
 	const [error, setError] = useState("");
 
+	const mySpaceURL = "https://mindlift-be.onrender.com/myspace";
+
 	useEffect(() => {
 		getFromDatabase();
 	}, []);
 
 	async function getFromDatabase() {
-		const response = await fetch("http://localhost:8080/myspace", {
+		const response = await fetch(mySpaceURL, {
 			method: "GET",
 			credentials: "include",
 		});
@@ -37,7 +39,7 @@ function MySpace() {
 				const isTokenRefreshed = await useRefreshToken(navigate, setError);
 
 				if (isTokenRefreshed) {
-					const retryResponse = await fetch("http://localhost:8080/myspace", {
+					const retryResponse = await fetch(mySpaceURL, {
 						method: "GET",
 						credentials: "include",
 					});
